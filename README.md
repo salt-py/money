@@ -1,5 +1,10 @@
 # money
 
+[![tests](https://github.com/salt-py/money/actions/workflows/test.yml/badge.svg)](https://github.com/salt-py/money/actions/workflows/test.yml)
+[![license: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![python](https://img.shields.io/badge/python-3.10%2B-blue.svg)](pyproject.toml)
+![privacy: local-only](https://img.shields.io/badge/privacy-local--only-brightgreen.svg)
+
 A local-only personal finance tracker: pulls transactions from Monzo via
 its API, and from every other bank/card via a PDF statement parser, into a
 local SQLite database, with simple CLI reports on top.
