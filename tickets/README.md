@@ -28,6 +28,46 @@ still undecided, or blocked on something).
   technical-quality work still has a home here without forcing it onto
   an end-user profile it doesn't really belong to.
 
+### Two shapes: planned vs. done
+
+A ticket starts life as **planned** (usually promoted from a `Proposed`
+row in `product/roadmap.md`) and is rewritten as **done** once the work
+lands -- same file, same number, different shape:
+
+**Planned** (`Status: Planned` or `In progress`):
+```markdown
+# <Feature>
+
+**Status:** Planned
+
+## Summary
+What this is and why it's worth doing, in a paragraph.
+
+## Profiles
+[Name](../product/name.md)
+- As X, I want Y, so that Z.
+
+## Acceptance criteria
+- [ ] Concrete, checkable outcome
+- [ ] Another one
+```
+
+**Done** (`Status: Done`) -- adds the retrospective sections once
+implemented, per the existing examples in this folder:
+```markdown
+## What shipped
+(replaces Acceptance criteria once every box is checked)
+
+## Key decisions
+(the why -- trade-offs, rejected alternatives; often becomes ADRs in
+architecture/adr.md too, for anything with real architectural weight)
+```
+
+The `implement` skill (`.claude/skills/implement/SKILL.md`) drives a
+ticket through this whole lifecycle: promote a roadmap row to a planned
+ticket, implement it, tick off acceptance criteria as they're satisfied,
+and rewrite the ticket into its done shape at the end.
+
 ## Index
 
 | # | Feature | Profile(s) | Status |
