@@ -1,0 +1,12 @@
+# Synthetic categorization rules, used only by tests/test_pdf_import.py
+# against the synthetic fixture PDFs in this directory -- entirely made
+# up, not related to any real rule a real user would have.
+rules:
+  - pattern: "tesco|sainsbury|asda|aldi|lidl|waitrose|morrisons|co-?op food"
+    category: Groceries
+
+  - pattern: ACME\ EXAMPLE\ LTD
+    category: Income
+
+  - pattern: EXAMPLE\ KIDS\ CLUB
+    category: Household Contribution

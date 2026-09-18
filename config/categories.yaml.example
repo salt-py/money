@@ -1,0 +1,84 @@
+# Starter category taxonomy -- copy this to categories.yaml and edit
+# freely (rename, remove, add, re-nest) to match your own situation.
+# `categories.yaml` itself is gitignored, same as rules.yaml, so your
+# real categories never need to leave your machine.
+#
+# `parent: null` means top-level. Discretionary / Non-Discretionary are
+# root categories that every spend category should nest under (via
+# `parent:`) -- that's what `money report discretionary` uses to work out
+# what's essential vs optional, instead of a separate config file
+# duplicating this list. A few categories are deliberately left with
+# `parent: null` (unclassified) because they're not really "spend" either
+# way -- see the comment above each.
+categories:
+  - name: Discretionary
+    parent: null
+  - name: Non-Discretionary
+    parent: null
+
+  # Not spend in either sense -- the inflow being divided up.
+  - name: Income
+    parent: null
+
+  # Money sent to a partner/shared account for rent, bills, etc. Rename
+  # or remove this if that's not part of your situation.
+  - name: Household Contribution
+    parent: Non-Discretionary
+  - name: Groceries
+    parent: Non-Discretionary
+  - name: Eating Out
+    parent: Discretionary
+  - name: Transport
+    parent: Discretionary
+  # Kept as a category in its own right (a fallback for anything that
+  # doesn't fit the more specific ones below) as well as a parent node --
+  # `report discretionary` walks the parent chain, so Utilities/Council
+  # Tax/Phone & Broadband nesting under this still count as
+  # Non-Discretionary without needing to say so themselves.
+  - name: Bills & Utilities
+    parent: Non-Discretionary
+  - name: Utilities
+    parent: Bills & Utilities
+  - name: Council Tax
+    parent: Bills & Utilities
+  - name: Phone & Broadband
+    parent: Bills & Utilities
+
+  - name: Shopping
+    parent: Discretionary
+  - name: Entertainment
+    parent: Discretionary
+  - name: Health
+    parent: Non-Discretionary
+  - name: Charity
+    parent: Discretionary
+  # Cancellable, so treated as discretionary rather than a true necessity.
+  - name: Insurance
+    parent: Discretionary
+
+  # A recurring credit-line repayment (e.g. a store card/finance plan)
+  # that you're tracking in config/debt.yaml -- see the comment on
+  # Credit Card Payment below for why it stays unclassified here.
+  - name: Credit Line Payment
+    parent: null
+
+  # Internal money movement (own-account transfers), not real spend --
+  # left unclassified rather than guessed at.
+  - name: Transfers
+    parent: null
+
+  # This month's actual card payment already mirrors the forward-looking
+  # minimum payment modelled in config/debt.yaml -- counting both would
+  # double-count the same money, so this stays unclassified.
+  - name: Credit Card Payment
+    parent: null
+
+  # Same double-counting reasoning as Credit Card Payment -- debt.yaml's
+  # APR already models interest going forward.
+  - name: Interest
+    parent: null
+
+  # Unknown by definition -- could be essential or discretionary, so it's
+  # reported separately rather than guessed into one bucket.
+  - name: Uncategorized
+    parent: null

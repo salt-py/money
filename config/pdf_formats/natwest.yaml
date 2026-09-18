@@ -1,0 +1,28 @@
+# Column mapping for a NatWest "Transactions" PDF export from the mobile
+# app (Statements -> Download transactions -> PDF).
+#
+# This is a plain-text statement (no drawn table borders), one transaction
+# per line, shaped like:
+#   03 Sep EXAMPLE FINANCE LTD Direct Debit -£50.00
+#   25 Aug ACME EXAMPLE LTD Automated Credit £2,500.00
+# Presence of `line_types` (rather than `column_aliases`) tells the
+# importer to use the line-based parser instead of table extraction. The
+# amount already carries its own sign (a leading "-" for money out), so
+# there's no separate debit/credit column to configure. Dates in each line
+# have no year ("03 Sep") -- the year is inferred from the statement's
+# "From .../ To ..." date range printed near the top of the first page.
+#
+# `line_types` is the fixed vocabulary NatWest uses for the transaction
+# "Type" column; if a future statement introduces a type not in this list,
+# that line will simply be skipped (import-pdf's row count will be lower
+# than expected -- worth checking dry-run's transactions_parsed against
+# how many lines you can see in the PDF yourself).
+line_types:
+  - "Direct Debit"
+  - "Standing Order"
+  - "Debit Card Transaction"
+  - "Mobile/Online Transaction"
+  - "Automated Credit"
+  - "Interest"
+  - "Charges"
+  - "Transfer"
