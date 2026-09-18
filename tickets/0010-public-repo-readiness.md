@@ -10,6 +10,18 @@ public required auditing for -- and removing -- every trace of real
 personal/financial data, not just going forward but from git history
 itself, plus the usual public-repo scaffolding (license, CI, badges).
 
+## Profiles
+
+[Engineering](../product/engineering.md)
+
+- As Engineering, I want no real personal or financial data reachable
+  from this repo or its history, so that the project can be shared
+  publicly without exposing anything about the person who built it.
+- As Engineering, I want a fresh clone to actually work end to end
+  (tests pass, commands give a clear error instead of a crash) with only
+  the generic `.example` config, so that "public and shareable" is true
+  in practice, not just in intent.
+
 ## What shipped
 
 - **Personal config gitignored, same as `.env`.** `config/categories.yaml`

@@ -8,6 +8,17 @@
 household contributions, how much am I actually free to spend this
 month" -- income minus Non-Discretionary spend minus debt commitment.
 
+## Profiles
+
+[Dana](../product/dana.md), [Sofia](../product/sofia.md)
+
+- As Dana, I want to know what's actually left over after bills and debt
+  minimums, so that I know how much extra I can honestly put toward debt
+  payoff without guessing.
+- As Sofia, I want a real, grounded "money actually free to save" number
+  rather than a naive income-minus-everything guess, so that a savings
+  goal projection is based on something true.
+
 ## What shipped
 
 - `src/money/discretionary.py`: `resolve_bucket(category, parent_map)`

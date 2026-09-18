@@ -9,6 +9,17 @@ line) with its balance/APR/minimum payment, and `debt plan` simulates an
 avalanche payoff (highest effective APR first, re-evaluated every month)
 to answer "how do I become debt free from here."
 
+## Profiles
+
+[Dana](../product/dana.md)
+
+- As Dana, I want an avalanche payoff plan across all my debts, so that
+  any extra money I can put toward debt goes wherever it saves the most
+  interest, not wherever feels most satisfying to pay down.
+- As Dana, I want a promotional 0% period to correctly expire in the
+  plan's own math, so that the plan doesn't keep recommending I ignore a
+  balance whose discount rate has actually already run out.
+
 ## What shipped
 
 - `src/money/debt.py`: `get_tracked_debt_accounts()`, `load_debts()` /

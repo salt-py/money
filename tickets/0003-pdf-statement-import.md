@@ -10,6 +10,17 @@ their downloadable PDF statements instead. Four distinct real layouts
 across three banks, each reverse-engineered against a real statement (read
 with one-off explicit permission, never retained).
 
+## Profiles
+
+[Marcus](../product/marcus.md)
+
+- As Marcus, I want NatWest, Santander, and Capital One statements
+  importable even without an API, so that accounts without a Monzo-style
+  integration aren't just left out of my "one place to look" total.
+- As Marcus, I want a credit card's own closing balance picked up from
+  its statement automatically, so that a card I only ever import via PDF
+  still shows up correctly in net worth, not just in spending.
+
 ## What shipped
 
 - `src/money/importers/pdf_import.py`: a dispatcher over four layout

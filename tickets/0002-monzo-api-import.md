@@ -9,6 +9,14 @@ Monzo is the one account with a real personal-use developer API
 scraping -- `money monzo-auth` for the one-time login, `money import-monzo`
 to pull new transactions and balances on an ongoing basis.
 
+## Profiles
+
+[Marcus](../product/marcus.md)
+
+- As Marcus, I want my Monzo transactions and balance pulled in
+  automatically via its API, so that Monzo is one less account I have to
+  manually keep up to date to trust the "one place to look" total.
+
 ## What shipped
 
 - `src/money/importers/monzo.py`: OAuth authorization flow (`monzo-auth`,
