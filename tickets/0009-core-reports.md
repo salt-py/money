@@ -9,6 +9,16 @@ discretionary-income analysis got layered on top (see
 [0006](0006-budgeting.md), [0007](0007-debt-payoff-planner.md),
 [0008](0008-discretionary-income-report.md)).
 
+## Profiles
+
+[Marcus](../product/marcus.md), [Jess & Alex](../product/jess-and-alex.md)
+
+- As Marcus, I want one total plus a per-account breakdown of where I
+  stand, so that I don't have to log into four apps and add it up myself.
+- As Jess & Alex, I want to see how much went to our household account
+  this month and what share of income that represents, so that we can
+  tell at a glance whether our contributions are roughly on track.
+
 ## What shipped
 
 - `src/money/reports.py`: `net_worth()`, `spending()`, `household()`.

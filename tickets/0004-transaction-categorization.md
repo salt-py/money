@@ -9,6 +9,19 @@ rules (`config/rules.yaml`), falling back to `Uncategorized` for anything
 that doesn't match. `money categorize` is the interactive loop for
 clearing that backlog and saving new rules as you go.
 
+## Profiles
+
+[Ben](../product/ben.md), [Tom](../product/tom.md), [Elena](../product/elena.md)
+
+- As Ben, I want an interactive, guided way to clear my Uncategorized
+  backlog rather than hand-editing a YAML file, so that setting the tool
+  up doesn't require understanding regex or its config format up front.
+- As Tom, I want to save a rule with a friendly label the moment I
+  recognize a recurring payee, so that a cryptic merchant string only
+  ever needs decoding once.
+- As Elena, I want my side income matched by its own rule distinct from
+  my salary, so that the two are never mixed together in a report.
+
 ## What shipped
 
 - `src/money/categorize.py`: `Rule` (pattern + category + optional

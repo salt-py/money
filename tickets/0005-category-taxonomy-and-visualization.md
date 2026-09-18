@@ -13,6 +13,18 @@ category) as real YAML, for a structure-only view that's safe to share
 even though the underlying rules/categories files are personal and
 gitignored.
 
+## Profiles
+
+[Ben](../product/ben.md), [Engineering](../product/engineering.md)
+
+- As Ben, I want to see my whole category tree and which rules feed each
+  one at a glance, so that I can sanity-check my setup without reading
+  raw YAML.
+- As Engineering, I want a rule shadowed by an earlier, broader one to be
+  visible just by reading the tree output, so that a first-match-wins
+  ordering bug can be caught by inspection instead of by a user silently
+  getting the wrong category.
+
 ## What shipped
 
 - `config/categories.yaml`: `name` + `parent` (self-referential, multi-

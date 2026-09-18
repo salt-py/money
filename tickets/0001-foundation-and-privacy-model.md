@@ -8,6 +8,21 @@ The base architecture every other feature sits on: a local SQLite database,
 a shared category taxonomy, an argparse CLI (`python -m money.cli ...`),
 and a hard privacy boundary around anything touching real financial data.
 
+## Profiles
+
+[Engineering](../product/engineering.md) — this ticket has no single
+end-user profile of its own; it's the constraint every other profile's
+features get built under.
+
+- As Engineering, I want real financial data to stay local by
+  construction (never reachable from an AI assistant helping write this
+  code, never transmitted anywhere but directly to Monzo's own API), so
+  that every other feature can be built and shared without compromising
+  anyone's financial privacy.
+- As Engineering, I want imports to be idempotent (safe to re-run), so
+  that fixing a categorization rule or re-running an import after a
+  mistake never risks duplicating data.
+
 ## What shipped
 
 - `src/money/db.py`: schema for `accounts`, `categories` (self-referential

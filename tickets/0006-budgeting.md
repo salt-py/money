@@ -9,6 +9,17 @@ trailing actual spend; `money budget show` prints whatever's currently
 saved; `report budget --month` compares a given month's actuals against
 it.
 
+## Profiles
+
+[Priya](../product/priya.md)
+
+- As Priya, I want a budget suggested from my own trailing spend rather
+  than a generic template, so that the target is actually realistic for
+  my life.
+- As Priya, I want to compare a month's actual spend against my saved
+  budget with money in and out shown separately, so that a refund
+  doesn't quietly mask real overspending in the same category.
+
 ## What shipped
 
 - `src/money/budget.py`: `suggest_budget()` (trailing N-month average
