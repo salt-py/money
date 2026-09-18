@@ -11,5 +11,7 @@ skill (`.claude/skills/architecture/SKILL.md`).
 - **`principles.md`** (once there's an actual principle to put in it) —
   cross-cutting rules that constrain more than one design.
 
-Not yet generated for this project — run the `architecture` skill to
-produce the first pass.
+First pass written against the state of the code and `tickets/` as of
+2026-09-18. Re-run the skill (or ask to update it) after a structural
+change — a new import path, a new report, a change to how categorization
+or the DB schema works — rather than letting it drift out of date.
