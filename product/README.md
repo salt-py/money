@@ -5,6 +5,10 @@ serve) — one file per profile. Used to reason about what to build next:
 a proposed feature should be traceable to at least one real profile's
 actual need, not added because it seemed neat.
 
+See [`roadmap.md`](roadmap.md) for the prioritized, status-tracked
+backlog pulled from every profile's 🔲 list — that's the file to check
+for "what's next," this one is "who are we building for and why."
+
 ## Conventions
 
 - **Filename**: `firstname(s).md`, lowercase, hyphenated for a pair
