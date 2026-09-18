@@ -17,6 +17,11 @@ actual need, not added because it seemed neat.
   sets, they're the same profile.
 - When a 🔲 feature gets built, flip it to ✅ here as part of that work,
   and consider whether it's worth its own entry in `tickets/`.
+- One exception to "user profile": [Engineering](engineering.md) groups
+  technical-quality work (tests, tooling, refactoring, contributor
+  experience) the same way the others group user-facing features, since
+  that work has no end-user profile of its own to live under but still
+  needs the same "why does this matter" grounding.
 
 ## Index
 
@@ -31,3 +36,4 @@ actual need, not added because it seemed neat.
 | [Elena](elena.md) | Track side income cleanly for tax time |
 | [Ben](ben.md) | A simple "am I doing okay?" answer, no CLI expertise required |
 | [Grace](grace.md) | Understand long-term trends, not just this month |
+| [Engineering](engineering.md) | Keep the codebase trustworthy and maintainable |
