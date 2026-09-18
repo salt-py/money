@@ -1,0 +1,28 @@
+# Column mapping for a Capital One UK credit card statement PDF.
+#
+# Plain text with two unsigned amount columns side by side, "Paid in" and
+# "Paid out" -- unlike Santander/NatWest, this needs word-position
+# extraction (see parse_transactions_from_positioned_lines in
+# pdf_import.py) rather than a plain-text regex, since the flattened text
+# from pdfplumber's extract_text() loses which column an amount was in.
+positioned_columns:
+  # Substring (case-insensitive) identifying the header row, e.g. "Your
+  # transaction details ... Paid in Paid out".
+  header_anchor: "transaction details"
+  # The single word that appears in the header for the credit/"money in"
+  # column (i.e. the second word of "Paid in").
+  credit_column_label: "in"
+  # ...and for the debit/"money out" column ("Paid out").
+  debit_column_label: "out"
+
+# A "STATEMENT TOTALS" row sums both columns into one row and would
+# otherwise look like a real transaction (it has a date and a trailing
+# amount like any other row).
+skip_description_patterns:
+  - "STATEMENT TOTALS"
+
+# "Your new balance £123.45" in the account summary box on page 1 --
+# recorded into the balances table (as a negative, since it's debt owed)
+# so this account shows up in `report net-worth` and in `money debt`.
+balance_label_pattern: "Your new balance:?\\s*£([\\d,]+\\.\\d{2})"
+balance_is_debt: true

@@ -1,0 +1,38 @@
+# Starter categorization rules -- copy this to rules.yaml and replace
+# these with patterns that match your own payees/references. Checked
+# top to bottom, first match wins, case-insensitive, matched against
+# "<description> <merchant>".
+#
+# `rules.yaml` itself is gitignored (same as categories.yaml), so your
+# real payee names/references never need to leave your machine. For a
+# rule built around a real, identifying value -- a specific account
+# number, say -- prefer an env var in .env instead (see .env.example and
+# money/categorize.py's ENV_RULE_CATEGORIES), so it's not sitting in a
+# plain-text config file at all.
+#
+# Each rule can optionally have a `label:` -- a human-readable name for
+# a cryptic pattern (a reference-number-prefixed merchant string, say).
+# `money categories` shows the label instead of the raw pattern when
+# it's set.
+rules:
+  - pattern: "tesco|sainsbury|asda|aldi|lidl|waitrose|morrisons|co-?op food"
+    category: Groceries
+
+  - pattern: "deliveroo|just ?eat|uber ?eats|costa|starbucks|pret|greggs"
+    category: Eating Out
+
+  - pattern: "tfl|trainline|uber(?! ?eats)|national rail|stagecoach"
+    category: Transport
+
+  - pattern: "amazon|argos|john lewis"
+    category: Shopping
+
+  - pattern: "boots|pharmacy|nhs|dentist"
+    category: Health
+
+  # Example of a rule for a credit card's own Direct Debit repayment --
+  # both a bank's payee-name side and a card statement's generic
+  # "DIRECT DEBIT PAYMENT" side of the same transfer should map here.
+  - pattern: "direct ?debit ?payment"
+    category: Credit Card Payment
+    label: Card repayment

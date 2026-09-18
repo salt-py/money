@@ -1,0 +1,16 @@
+.env
+data/
+reports/
+TODO.txt
+# Real categories/payee patterns and derived spending/debt figures --
+# personal to whoever's running this, kept local same as data/ and .env.
+# See config/*.yaml.example for the tracked starter versions.
+config/categories.yaml
+config/rules.yaml
+config/budget.yaml
+config/debt.yaml
+__pycache__/
+*.pyc
+.pytest_cache/
+*.egg-info/
+.venv/

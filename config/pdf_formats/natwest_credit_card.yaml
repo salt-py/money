@@ -1,0 +1,19 @@
+# Column mapping for a NatWest credit card (Mastercard) statement PDF --
+# a different product/export than config/pdf_formats/natwest.yaml (the
+# current account "Transactions" export), hence a separate bank key.
+#
+# Plain text, no drawn table. Each real transaction line starts with two
+# "DD MON" dates (Trans Date, Post Date -- Trans Date is the one kept) and
+# ends with an amount; a trailing " -" after the amount marks a credit or
+# payment (stored positive), a bare amount is a charge (stored negative,
+# i.e. spend). This two-leading-dates shape is specific enough that no
+# skip-list is needed for summary lines like "Sub-Total" or "NEW BALANCE"
+# -- they simply don't start with two dates.
+date_pair: true
+
+# "New Balance = £678.90" in the summary box on page 1 -- recorded into the
+# balances table (as a negative, since it's debt owed) so this account
+# shows up in `report net-worth` and in `money debt`. Lenient spacing
+# (`\s*` not a literal space) for the same font-kerning reason noted above.
+balance_label_pattern: "New\\s*Balance\\s*=?\\s*£([\\d,]+\\.\\d{2})"
+balance_is_debt: true

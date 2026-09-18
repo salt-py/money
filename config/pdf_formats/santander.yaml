@@ -1,0 +1,42 @@
+# Column mapping for a Santander UK credit card statement PDF (downloaded
+# from the app or online banking -- "Transaction Details" page).
+#
+# Unlike NatWest, this one is a real drawn table pdfplumber extracts
+# directly. Row dates are ordinal with no year ("14th Aug") -- the year is
+# inferred from "Statement Date: ..." / "Previous balance as at ..."
+# elsewhere in the document. A few real transaction rows (e.g. "Interest",
+# "Balance Transfer Interest") have no date of their own at all -- those
+# fall back to the statement's own date.
+table_columns:
+  date: "Date"
+  description: "Description"
+  amount: "Amount (£)"
+
+# The Amount column lists every charge as a plain positive number (no
+# sign). Flipping it makes spend negative, consistent with every other
+# importer in this app.
+#
+# UNVERIFIED: this statement had no payments on it ("Payments received:
+# £0.00"), so there's no real example of how a payment/credit row would
+# look in the Amount column -- possibly already negative, possibly still
+# positive with a different Description prefix like "Payment - thank you".
+# If a payment ever gets miscategorized as spend after a real payment
+# shows up on a statement, that's the thing to check.
+flip_amount_sign: true
+
+# Non-transaction rows that have a real (non-blank) amount and would
+# otherwise look like a transaction -- matched against the Description
+# column, case-insensitive. Rows with a blank Amount cell (a running
+# "Balance ..." summary line, a legal warning paragraph) are already
+# skipped automatically and don't need listing here.
+skip_description_patterns:
+  - "^Balance brought forward"
+  - "^Total of New Transactions"
+
+# "Your new balance: £987.65" in the account summary box on page 1 --
+# recorded into the balances table (as a negative, since it's debt owed)
+# so this account shows up in `report net-worth` and in `money debt`,
+# which otherwise only see accounts with a balance snapshot (PDF imports
+# only ever wrote transactions before this was added).
+balance_label_pattern: "Your new balance:?\\s*£([\\d,]+\\.\\d{2})"
+balance_is_debt: true
